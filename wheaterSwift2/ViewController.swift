@@ -23,7 +23,7 @@ class ViewController: UIViewController {
             preferredStyle: UIAlertControllerStyle.Alert
         )
         
-        self.presentViewController(alert, animated: true, completion: nil)
+       
         
         let cancelAlert = UIAlertAction(
             title: "CLOSE",
@@ -32,6 +32,22 @@ class ViewController: UIViewController {
         )
         
         alert.addAction(cancelAlert)
+        
+        let okAlert = UIAlertAction(title: "OKAY", style: UIAlertActionStyle.Default) { (action: UIAlertAction) -> Void in
+            let textField = alert.textFields![0]
+            print(textField.text!)
+        }
+        
+        
+        alert.addAction(okAlert)
+        
+        
+        alert.addTextFieldWithConfigurationHandler { (textFieldVar: UITextField) -> Void in
+            textFieldVar.placeholder = "Enter the city name"
+        }
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
