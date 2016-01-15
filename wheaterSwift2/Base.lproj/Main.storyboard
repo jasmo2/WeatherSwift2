@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="wheaterSwift2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,68 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp ºC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rg-fk-mhl">
+                                <rect key="frame" x="20" y="51" width="560" height="33"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.79795435855263153" green="0.24033717105263158" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQR-6U-3gY">
+                                <rect key="frame" x="20" y="91" width="349" height="77"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="fk5-uy-Gra"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Town" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1i-kx-vsy">
+                                <rect key="frame" x="20" y="167" width="349" height="77"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="mzt-uo-viA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0w-Ja-VRC">
+                                <rect key="frame" x="216" y="266" width="169" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="169" id="LPb-4b-ljm"/>
+                                </constraints>
+                                <state key="normal" title="City">
+                                    <color key="titleShadowColor" white="0.38272099902755335" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cityButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Rb-pJ-ST0"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iQR-6U-3gY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="UA1-6n-R9K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iQR-6U-3gY" secondAttribute="trailing" constant="211" id="Ugs-Rr-Qhh"/>
+                            <constraint firstItem="b1i-kx-vsy" firstAttribute="top" secondItem="8rg-fk-mhl" secondAttribute="bottom" constant="84" id="Y1O-oG-Kom"/>
+                            <constraint firstItem="8rg-fk-mhl" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="d5I-zN-vTY"/>
+                            <constraint firstItem="8rg-fk-mhl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="d9A-3I-qbi"/>
+                            <constraint firstItem="P0w-Ja-VRC" firstAttribute="centerX" secondItem="8rg-fk-mhl" secondAttribute="centerX" id="i3q-We-xfS"/>
+                            <constraint firstItem="b1i-kx-vsy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="167" id="m54-ah-agA"/>
+                            <constraint firstItem="iQR-6U-3gY" firstAttribute="top" secondItem="8rg-fk-mhl" secondAttribute="bottom" constant="8" symbolic="YES" id="nfb-qe-V1E"/>
+                            <constraint firstItem="b1i-kx-vsy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="v5f-G2-7hg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b1i-kx-vsy" secondAttribute="trailing" constant="211" id="ylF-UF-wA4"/>
+                            <constraint firstItem="P0w-Ja-VRC" firstAttribute="top" secondItem="b1i-kx-vsy" secondAttribute="bottom" constant="22" id="zTC-tZ-abb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descrip" destination="iQR-6U-3gY" id="eYt-5K-84e"/>
+                        <outlet property="temp" destination="8rg-fk-mhl" id="133-v7-BDv"/>
+                        <outlet property="townLabel" destination="b1i-kx-vsy" id="rIm-It-p2j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="387" y="344"/>
         </scene>
     </scenes>
 </document>

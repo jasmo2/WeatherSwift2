@@ -10,6 +10,29 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var townLabel: UILabel!
+    @IBOutlet weak var descrip: UILabel!
+    @IBOutlet weak var temp: UILabel!
+    @IBAction func cityButton(sender: UIButton) {
+        cityAlert()
+    }
+    func cityAlert(){
+        let alert = UIAlertController(
+            title: "Town Alert",
+            message: "Enter a Town name",
+            preferredStyle: UIAlertControllerStyle.Alert
+        )
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        let cancelAlert = UIAlertAction(
+            title: "CLOSE",
+            style: UIAlertActionStyle.Cancel,
+            handler: nil
+        )
+        
+        alert.addAction(cancelAlert)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,7 +42,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
