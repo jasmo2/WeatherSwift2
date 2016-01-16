@@ -8,14 +8,25 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, WeatherClassDelegate {
+    
+    
+    let weatherService = WeatherClass()
+    
     @IBOutlet weak var townLabel: UILabel!
     @IBOutlet weak var descrip: UILabel!
     @IBOutlet weak var temp: UILabel!
     @IBAction func cityButton(sender: UIButton) {
         cityAlert()
     }
+    
+    func setWeather(weatherStruct: WeatherStruct) {
+        print("delegate call")
+        print("Town name \(weatherStruct.cityName)")
+        print("description: \(weatherStruct.description)")
+        print("Temperature en Celcius: \(weatherStruct.kelvin - 273.15)º")
+    }
+    
     func cityAlert(){
         let alert = UIAlertController(
             title: "Town Alert",
@@ -23,19 +34,24 @@ class ViewController: UIViewController {
             preferredStyle: UIAlertControllerStyle.Alert
         )
         
-       
         
         let cancelAlert = UIAlertAction(
             title: "CLOSE",
             style: UIAlertActionStyle.Cancel,
             handler: nil
         )
+
         
+    
         alert.addAction(cancelAlert)
+    
         
         let okAlert = UIAlertAction(title: "OKAY", style: UIAlertActionStyle.Default) { (action: UIAlertAction) -> Void in
             let textField = alert.textFields![0]
+            //
             print(textField.text!)
+            self.townLabel.text = textField.text!
+            self.weatherService.getWeather(textField.text!)
         }
         
         
@@ -52,6 +68,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.weatherService.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
