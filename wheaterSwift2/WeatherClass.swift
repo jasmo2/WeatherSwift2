@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 protocol WeatherClassDelegate{
     func setWeather(weatherStruct: WeatherStruct)
     
@@ -14,11 +15,12 @@ protocol WeatherClassDelegate{
 
 
 class WeatherClass {
-    
     var delegate: WeatherClassDelegate?
     func getWeather(city: String){
         let cityScape = city.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
-        let path = "http://api.openweathermap.org/data/2.5/weather?q=\(cityScape)&appid=2de143494c0b295cca9337e1e96b00e0"
+        let openWeatherAPIKey = Keys()
+        
+        let path = "http://api.openweathermap.org/data/2.5/weather?q=\(cityScape!)&appid=\(openWeatherAPIKey.getOpenWeatherAPIKey())"
         let url = NSURL(string: path)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!) { (data: NSData?, response: NSURLResponse?, err: NSError?) -> Void in
