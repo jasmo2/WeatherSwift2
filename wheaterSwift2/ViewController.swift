@@ -25,6 +25,11 @@ class ViewController: UIViewController, WeatherClassDelegate {
         print("Town name \(weatherStruct.cityName)")
         print("description: \(weatherStruct.description)")
         print("Temperature en Celcius: \(weatherStruct.kelvin - 273.15)º")
+        self.townLabel.text = weatherStruct.cityName
+        self.temp.text = "\(String(format: "%.1f", weatherStruct.kelvin - 253.15)))"
+        
+        self.descrip.text = weatherStruct.description
+
     }
     
     func cityAlert(){
@@ -50,7 +55,6 @@ class ViewController: UIViewController, WeatherClassDelegate {
             let textField = alert.textFields![0]
             //
             print(textField.text!)
-            self.townLabel.text = textField.text!
             self.weatherService.getWeather(textField.text!)
         }
         
