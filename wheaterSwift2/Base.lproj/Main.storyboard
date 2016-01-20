@@ -86,6 +86,7 @@
                         <outlet property="descrip" destination="iQR-6U-3gY" id="eYt-5K-84e"/>
                         <outlet property="temp" destination="8rg-fk-mhl" id="133-v7-BDv"/>
                         <outlet property="townLabel" destination="b1i-kx-vsy" id="rIm-It-p2j"/>
+                        <outlet property="weatherImage" destination="PNh-Y4-S3f" id="ZYh-mm-6Zn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

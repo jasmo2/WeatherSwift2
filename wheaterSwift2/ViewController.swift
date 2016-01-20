@@ -13,6 +13,7 @@ class ViewController: UIViewController, WeatherClassDelegate {
     
     let weatherService = WeatherClass()
     
+    @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var townLabel: UILabel!
     @IBOutlet weak var descrip: UILabel!
     @IBOutlet weak var temp: UILabel!
@@ -28,9 +29,17 @@ class ViewController: UIViewController, WeatherClassDelegate {
         self.townLabel.text = weatherStruct.cityName
         self.temp.text = "\(String(format: "%.1f", weatherStruct.kelvin - 273.15)) ºC"
         self.descrip.text = weatherStruct.description
+        self.weatherImage.image = UIImage(named:  weatherStruct.img)
 
     }
-    
+    func weatherErrorMessage(message: String) {
+        let errAlert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let ok = UIAlertAction(title: "ok", style: UIAlertActionStyle.Default, handler: nil)
+       
+        errAlert.addAction(ok)
+        
+        self.presentViewController(errAlert, animated: false, completion: nil)
+    }
     func cityAlert(){
         let alert = UIAlertController(
             title: "Town Alert",
