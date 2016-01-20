@@ -8,17 +8,17 @@
 
 import Foundation
 
-class Keys {
+class KeysDict {
     var keys: NSDictionary?
 
     init(){
-        if let path = NSBundle.mainBundle().pathForResource("Keys", ofType: "plist") {
+        if let path = NSBundle.mainBundle().pathForResource("keys", ofType: "plist") {
             keys = NSDictionary(contentsOfFile: path)
         }
     }
     func getOpenWeatherAPIKey()->String{
-        if let dict = keys {
-           return keys?["OPENWEATHER"] as! String
+        if let _ = keys {
+           return keys?["weatherkey"] as! String
            
         }
         return ""
