@@ -26,8 +26,7 @@ class ViewController: UIViewController, WeatherClassDelegate {
         print("description: \(weatherStruct.description)")
         print("Temperature en Celcius: \(weatherStruct.kelvin - 273.15)º")
         self.townLabel.text = weatherStruct.cityName
-        self.temp.text = "\(String(format: "%.1f", weatherStruct.kelvin - 253.15)) ºC"
-        
+        self.temp.text = "\(String(format: "%.1f", weatherStruct.kelvin - 273.15)) ºC"
         self.descrip.text = weatherStruct.description
 
     }

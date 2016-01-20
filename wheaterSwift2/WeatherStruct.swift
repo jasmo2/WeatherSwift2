@@ -12,11 +12,14 @@ struct WeatherStruct {
     let cityName: String
     let description : String
     let kelvin: Double
+    let img: String
     
-    init (cityName: String, description: String, kelvin: Double){
+    init (cityName: String,img: String, description: String, kelvin: Double){
         self.cityName = cityName
         self.description = description
         self.kelvin = kelvin
+        self.img = img
+        
     }
     
     
