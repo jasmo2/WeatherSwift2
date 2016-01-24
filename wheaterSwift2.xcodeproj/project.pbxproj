@@ -35,6 +35,7 @@
 		9F5E4D521C47BEBC008D5D95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E4D501C47BEBC008D5D95 /* LaunchScreen.storyboard */; };
 		9F5E4D5A1C494C5D008D5D95 /* WeatherClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E4D591C494C5D008D5D95 /* WeatherClass.swift */; };
 		9F5E4D5C1C4AA76F008D5D95 /* WeatherStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E4D5B1C4AA76F008D5D95 /* WeatherStruct.swift */; };
+		9FCACA4B1C547611003D3EA8 /* WeatherClassDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCACA4A1C547611003D3EA8 /* WeatherClassDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		9F5E4D531C47BEBC008D5D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F5E4D591C494C5D008D5D95 /* WeatherClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherClass.swift; sourceTree = "<group>"; };
 		9F5E4D5B1C4AA76F008D5D95 /* WeatherStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherStruct.swift; sourceTree = "<group>"; };
+		9FCACA4A1C547611003D3EA8 /* WeatherClassDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherClassDelegate.swift; sourceTree = "<group>"; };
 		E410F3A37330CCF4B336C802 /* Pods-wheaterSwift2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wheaterSwift2.release.xcconfig"; path = "Pods/Target Support Files/Pods-wheaterSwift2/Pods-wheaterSwift2.release.xcconfig"; sourceTree = "<group>"; };
 		F715522426D404700CA07FE2 /* Pods-wheaterSwift2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wheaterSwift2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wheaterSwift2/Pods-wheaterSwift2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +161,7 @@
 				9F5E4D531C47BEBC008D5D95 /* Info.plist */,
 				9F049E801C4D64F500A40653 /* keys.plist */,
 				9F049E821C4D65E400A40653 /* Keys.swift */,
+				9FCACA4A1C547611003D3EA8 /* WeatherClassDelegate.swift */,
 			);
 			path = wheaterSwift2;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				9F5E4D4A1C47BEBC008D5D95 /* ViewController.swift in Sources */,
 				9F5E4D481C47BEBC008D5D95 /* AppDelegate.swift in Sources */,
 				9F5E4D5C1C4AA76F008D5D95 /* WeatherStruct.swift in Sources */,
+				9FCACA4B1C547611003D3EA8 /* WeatherClassDelegate.swift in Sources */,
 				9F049E831C4D65E400A40653 /* Keys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

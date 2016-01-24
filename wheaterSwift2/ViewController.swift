@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import CoreLocation // 1 import CoreLocation
 
-class ViewController: UIViewController, WeatherClassDelegate {
+
+class ViewController: UIViewController, CLLocationManagerDelegate,WeatherClassDelegate {
     
-    
-    let weatherService = WeatherClass()
+    let locationManager = CLLocationManager()
+
+    let weatherService = WeatherClass(appid: KeysDict().getOpenWeatherAPIKey())
     
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var townLabel: UILabel!
@@ -63,7 +66,7 @@ class ViewController: UIViewController, WeatherClassDelegate {
             let textField = alert.textFields![0]
             //
             print(textField.text!)
-            self.weatherService.getWeather(textField.text!)
+            self.weatherService.getWeatherForCity(textField.text!)
         }
         
         
@@ -77,10 +80,42 @@ class ViewController: UIViewController, WeatherClassDelegate {
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
+    
+//   Location delegates 
+    func getGPSLocation() {
+        print("Starting location Manager")
+        locationManager.startUpdatingLocation()
+    }
+    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+        // Get weather for location
+        print("Did update To Location")
+        print(newLocation)
+        locationManager.stopUpdatingLocation()
+    }
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Did update locations")
+        print(locations)
+        self.weatherService.getWeatherForLocation(locations[0])
+        locationManager.stopUpdatingLocation()
+    }
+    
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("location error \(error) \(error.userInfo)")
+    }
+    
+//    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         self.weatherService.delegate = self
+
+        // Do any additional setup after loading the view, typically from a nib.
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
+        self.getGPSLocation()
+        
     }
 
     override func didReceiveMemoryWarning() {

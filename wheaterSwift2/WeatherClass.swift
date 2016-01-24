@@ -8,22 +8,35 @@
 
 import Foundation
 import SwiftyJSON
-
-protocol WeatherClassDelegate{
-    func setWeather(weatherStruct: WeatherStruct)
-    func weatherErrorMessage(message: String)
-    
-}
-
+import CoreLocation
 
 class WeatherClass {
     var delegate: WeatherClassDelegate?
-    func getWeather(city: String){
-
-        let cityScape = city.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
-        let openWeatherAPIKey = KeysDict()
+    let appid:String
+    init(appid: String){
+        self.appid = appid
+    }
+    
+    func getWeatherForLocation(location: CLLocation) {
+        let lat = location.coordinate.latitude
+        let lon = location.coordinate.longitude
         
-        let path = "http://api.openweathermap.org/data/2.5/weather?q=\(cityScape!)&appid=\(openWeatherAPIKey.getOpenWeatherAPIKey())"
+        // Put together a URL With lat and lon
+        let path = "http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(appid)"
+        
+        getWeather(path)
+    }
+    func getWeatherForCity(city: String){
+        
+        let cityScape = city.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+        
+        let path = "http://api.openweathermap.org/data/2.5/weather?q=\(cityScape!)&appid=\(appid)"
+         getWeather(path)
+    }
+    
+    private
+    func getWeather(path: String){
+
         let url = NSURL(string: path)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!) { (data: NSData?, response: NSURLResponse?, err: NSError?) -> Void in
@@ -80,12 +93,6 @@ class WeatherClass {
                     self.delegate?.weatherErrorMessage("an error has occured")
                 })
             }
-            
-            
-            
-            
-           
-    
             
         }
         task.resume()
